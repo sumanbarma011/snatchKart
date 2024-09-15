@@ -1,11 +1,13 @@
+import 'package:esnatch/core/utils/validators/validation.dart';
+import 'package:esnatch/features/authentication/controller/login/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:esnatch/core/utils/constants/sizes.dart';
 import 'package:esnatch/core/utils/constants/text_strings.dart';
 import 'package:esnatch/features/authentication/screens/password_configuration/forgot_password.dart';
 import 'package:esnatch/features/authentication/screens/signUp/sign_up.dart';
-import 'package:esnatch/navigation_menu.dart';
 
 class TLoginForm extends StatefulWidget {
   const TLoginForm({super.key});
@@ -17,10 +19,14 @@ class TLoginForm extends StatefulWidget {
 class _TLoginFormState extends State<TLoginForm> {
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LogInController());
     return Form(
+      key: controller.signInFormKey,
       child: Column(
         children: [
           TextFormField(
+            controller: controller.email,
+            validator: (value) => TValidator.validateEmail(value),
             decoration: InputDecoration(
                 prefixIcon: const Icon(Iconsax.direct_right),
                 labelText: TTexts.email,
@@ -31,18 +37,28 @@ class _TLoginFormState extends State<TLoginForm> {
           const SizedBox(
             height: TSizes.defaultSpace,
           ),
-          TextFormField(
-            decoration: InputDecoration(
-              prefixIcon: const Icon(Iconsax.password_check),
-              hintText: TTexts.password,
-              label: const Text(TTexts.password),
-              hintStyle: Theme.of(context).textTheme.bodySmall,
-              suffixIcon: GestureDetector(
-                onTap: () {},
-                child: const Icon(Iconsax.eye),
+          Obx(
+            () => TextFormField(
+              controller: controller.password,
+              validator: (value) =>
+                  TValidator.validateEmptyText('Password', value),
+              obscureText: controller.hide.value,
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Iconsax.password_check),
+                hintText: TTexts.password,
+                label: const Text(TTexts.password),
+                hintStyle: Theme.of(context).textTheme.bodySmall,
+                suffixIcon: GestureDetector(
+                  onTap: () {
+                    controller.hide.value = !controller.hide.value;
+                  },
+                  child: Icon(
+                      controller.hide.value ? Iconsax.eye_slash : Iconsax.eye),
+                ),
               ),
             ),
           ),
+
           const SizedBox(
             height: TSizes.spaceBtwInputFields / 2,
           ),
@@ -51,16 +67,21 @@ class _TLoginFormState extends State<TLoginForm> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    Checkbox(
-                      value: false,
-                      onChanged: (newvalue) {},
-                    ),
-                    const Text(
-                      TTexts.rememberMe,
-                    ),
-                  ],
+                Obx(
+                  () => Row(
+                    children: [
+                      Checkbox(
+                        value: controller.rememberMe.value,
+                        onChanged: (newvalue) {
+                          controller.rememberMe.value =
+                              !controller.rememberMe.value;
+                        },
+                      ),
+                      const Text(
+                        TTexts.rememberMe,
+                      ),
+                    ],
+                  ),
                 ),
                 TextButton(
                   onPressed: () {
@@ -77,7 +98,7 @@ class _TLoginFormState extends State<TLoginForm> {
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
-                Get.off(() => const NavigationMenu());
+                controller.signIn();
               },
               child: const Text(
                 TTexts.signIn,

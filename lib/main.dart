@@ -1,25 +1,35 @@
+import 'package:esnatch/app.dart';
+import 'package:esnatch/core/data/repositories/repositories.authentication/authentication_repositiries.dart';
+import 'package:esnatch/firebase_options.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
-import 'package:esnatch/core/utils/theme/theme.dart';
-import 'package:esnatch/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+Future<void> main() async {
+  // widgets binding
+  final WidgetsBinding widgetsBinding =
+      WidgetsFlutterBinding.ensureInitialized();
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  // bindings
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      themeMode: ThemeMode.system,
-      theme: TAppTheme.lightTheme,
-      darkTheme: TAppTheme.darkTheme,
-      home: const OnBoardingScreen(),
-    );
-  }
+  // get local storage
+  await GetStorage.init();
+
+  //Await splash until other items load
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
+  // initialize firebase and authentication repository
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
+      .then(
+    (FirebaseApp value) => Get.put(
+      AuthenticationRepositiries(),
+    ),
+  );
+
+  // load all the material design/ theme/ bindings
+  runApp(
+    const MyApp(),
+  );
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:esnatch/features/authentication/screens/logIn/login.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:flutter/foundation.dart';
 
 class OnboardingController extends GetxController {
   // Singleton pattern using GetX
@@ -28,6 +30,12 @@ class OnboardingController extends GetxController {
 
   void nextPage() {
     if (currentIndex.value == 2) {
+      final deviceStorage = GetStorage();
+      deviceStorage.write('isFirstTime', false);
+      if (kDebugMode) {
+        print('============= Get storage auth repo =====================');
+        print(deviceStorage.read('isFirstTime'));
+      }
       Get.offAll(() => const LogInScreen());
     } else {
       int page = currentIndex.value + 1;

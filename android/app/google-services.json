@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "957534567289",
+    "project_id": "snatchkart-ae263",
+    "storage_bucket": "snatchkart-ae263.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957534567289:android:2bec5cbd4f8c2f6e60cda8",
+        "android_client_info": {
+          "package_name": "com.example.esnatch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "957534567289-e0nr2rb7e7e9si2ada7espk5i2v0hit0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.esnatch",
+            "certificate_hash": "099922a1f160846f89c1cd22cebdcb78641013a5"
+          }
+        },
+        {
+          "client_id": "957534567289-6rmlasetl9rbasslhbnsmg1svrvh4esj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2SkdaWazJ-ByA7EQ2tZmcc7ZuA-VZgOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "957534567289-6rmlasetl9rbasslhbnsmg1svrvh4esj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "957534567289-gvel8t0hmmpaul24mi5bkb355uoht7h6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.esnatch"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:esnatch/core/utils/constants/image_strings.dart';
 import 'package:esnatch/core/utils/constants/text_strings.dart';
-import 'package:esnatch/features/authentication/controllers.onboardong/onboarding_controller.dart';
+import 'package:esnatch/features/authentication/controller/onboarding/onboarding_controller.dart';
 import 'package:esnatch/features/authentication/screens/onboarding/widgets/onboarding_forward.dart';
 import 'package:esnatch/features/authentication/screens/onboarding/widgets/onboarding_navigation.dart';
 import 'package:esnatch/features/authentication/screens/onboarding/widgets/onboarding_page.dart';

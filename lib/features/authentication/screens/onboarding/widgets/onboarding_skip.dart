@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:esnatch/core/utils/constants/sizes.dart';
 import 'package:esnatch/core/utils/device/device_utility.dart';
-import 'package:esnatch/features/authentication/controllers.onboardong/onboarding_controller.dart';
+import 'package:esnatch/features/authentication/controller/onboarding/onboarding_controller.dart';
 
 class OnBoardingSkip extends StatelessWidget {
   const OnBoardingSkip({

@@ -50,10 +50,8 @@ class SuccessScreen extends StatelessWidget {
               SizedBox(
                 width: THelperFunctions.screenWidth(),
                 child: ElevatedButton(
+                  onPressed: onPressed,
                   child: const Text(TTexts.tContinue),
-                  onPressed: () {
-                    onPressed();
-                  },
                 ),
               )
             ],

@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:esnatch/core/common/widgets/widget.login/form_divider.dart';
 import 'package:esnatch/core/common/widgets/widget.login/social_buttons.dart';
 import 'package:esnatch/core/utils/constants/sizes.dart';
 import 'package:esnatch/core/utils/constants/text_strings.dart';
 import 'package:esnatch/features/authentication/screens/signUp/widgets/sign_up_form.dart';
-import 'package:esnatch/features/authentication/screens/signUp/widgets/terms_condition_checkbox.dart';
-import 'package:esnatch/features/authentication/screens/verificationEmailScreen/verification_email.dart';
 
 class SighUpScreen extends StatelessWidget {
   const SighUpScreen({super.key});
@@ -32,29 +29,6 @@ class SighUpScreen extends StatelessWidget {
               //form
               const TSignUpForm(),
 
-              const SizedBox(
-                height: TSizes.lg,
-              ),
-              //checkbox and terms and conditions
-              const TTermsConditionAndCheckBox(),
-
-              const SizedBox(
-                height: TSizes.md,
-              ),
-
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Get.to(
-                      () => const VerficationEmailScreen(),
-                    );
-                  },
-                  child: const Text(
-                    TTexts.signIn,
-                  ),
-                ),
-              ),
               const SizedBox(
                 height: TSizes.spaceBtwSections,
               ),
