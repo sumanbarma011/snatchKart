@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart' as cs;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:esnatch/core/common/widgets/custom_shapes/container/circular_container.dart';
@@ -18,7 +18,7 @@ class TPromoSlider extends StatelessWidget {
     final controller = Get.put(HomeController());
     return Column(
       children: [
-        CarouselSlider(
+        cs.CarouselSlider(
           items: banners
               .map(
                 (e) => TRoundedImage(
@@ -26,7 +26,8 @@ class TPromoSlider extends StatelessWidget {
                 ),
               )
               .toList(),
-          options: CarouselOptions(
+          options: cs.CarouselOptions(
+            autoPlay: true,
             onPageChanged: (index, _) => controller.updatePageChange(index),
             viewportFraction: 1,
           ),
