@@ -21,23 +21,17 @@ class TFormatException implements Exception {
   factory TFormatException.fromCode(String code) {
     switch (code) {
       case 'invalid-email-format':
-        return const TFormatException(
-            'The email address is already registered. Please use a different email address');
+        return const TFormatException('invalid-email-format');
       case 'invalid-phone-number-format':
-        return const TFormatException(
-            'The email address is already registered. Please use a different email address');
+        return const TFormatException('invalid-phone-number-format');
       case 'invalid-date-format':
-        return const TFormatException(
-            'The email address is already registered. Please use a different email address');
+        return const TFormatException('invalid-date-format');
       case 'invalid-url-format':
-        return const TFormatException(
-            'The email address is already registered. Please use a different email address');
+        return const TFormatException('invalid-url-format');
       case 'invalid-credit-card-format':
-        return const TFormatException(
-            'The email address is already registered. Please use a different email address');
+        return const TFormatException('invalid-credit-card-format');
       case 'invalid-numeric-format':
-        return const TFormatException(
-            'The email address is already registered. Please use a different email address');
+        return const TFormatException('invalid-numeric-format');
       default:
         return TFormatException(code);
     }

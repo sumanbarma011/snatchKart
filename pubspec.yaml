@@ -29,6 +29,8 @@ dependencies:
   flutter_native_splash: ^2.4.0
   smooth_page_indicator: ^1.1.0
   lottie: ^3.1.2
+  shimmer: ^3.0.0
+  image_picker: ^1.1.2
   connectivity_plus: ^5.0.1
 
   #product specific
@@ -42,6 +44,7 @@ dependencies:
   cloud_firestore: ^4.13.1
   firebase_auth: ^4.14.0
   google_sign_in: ^6.2.1
+  firebase_storage: ^11.6.5
 
 dev_dependencies:
   flutter_test:
@@ -63,7 +66,7 @@ flutter:
     - assets/images/animations/
     - assets/images/banners/
     - assets/images/content/
-
+    - assets/images/reviews/
     - assets/images/products/
   # local fonts
   fonts:

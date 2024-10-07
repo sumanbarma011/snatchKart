@@ -64,18 +64,20 @@ class UserModel {
   }
 
   // factor method to create a user modal from a firebase document snapshot
-  // factory UserModel.fromSnapshot(
-  //     DocumentSnapshot<Map<String, dynamic>> document) {
-  //   if (document.data() != null) {
-  //     final data = document.data()!;
-  //     return UserModel(
-  //         id: document.id,
-  //         firstName: data['FirstName'] ?? ' ',
-  //         lastName: data['LastName'] ?? ' ',
-  //         username: data['Username'] ?? ' ',
-  //         email: data['Email'] ?? ' ',
-  //         phoneNumber: data['PhoneNumber'] ?? ' ',
-  //         proflePicture: data['ProflePicture'] ?? ' ');
-  //   }
-  // }
+  factory UserModel.fromSnapshot(
+      DocumentSnapshot<Map<String, dynamic>> document) {
+    if (document.data() != null) {
+      final data = document.data()!;
+      return UserModel(
+          id: document.id,
+          firstName: data['FirstName'] ?? ' ',
+          lastName: data['LastName'] ?? ' ',
+          username: data['Username'] ?? ' ',
+          email: data['Email'] ?? ' ',
+          phoneNumber: data['PhoneNumber'] ?? ' ',
+          proflePicture: data['ProflePicture'] ?? ' ');
+    } else {
+      return UserModel.empty();
+    }
+  }
 }

@@ -8,43 +8,43 @@ class TPlatformException implements Exception {
   String get message {
     switch (code) {
       case 'INVALID_LOGIN_CREDENTIALS':
-        return 'The email address is already registered. Please use a different email address';
+        return 'INVALID_LOGIN_CREDENTIALS';
       case 'too-many-requests':
-        return 'The email address is already registered. Please use a different email address';
+        return 'too-many-requests';
       case 'invalid-argument':
-        return 'The email address is already registered. Please use a different email address';
+        return 'invalid-argument';
       case 'invalid-password':
-        return 'The email address is already registered. Please use a different email address';
+        return 'invalid-password';
       case 'invalid-phone-number':
-        return 'The email address is already registered. Please use a different email address';
+        return 'invalid-phone-number';
       case 'operation-not-allowed':
-        return 'The email address is already registered. Please use a different email address';
+        return 'operation-not-allowed';
       case 'session-cookie-expired':
-        return 'The email address is already registered. Please use a different email address';
+        return 'session-cookie-expired';
       case 'uid-already-exits':
-        return 'The email address is already registered. Please use a different email address';
+        return 'uid-already-exits';
       case 'sign_in_failed':
-        return 'The email address is already registered. Please use a different email address';
+        return 'sign_in_failed';
       case 'internet-request-failed':
-        return 'The email address is already registered. Please use a different email address';
+        return 'internet-request-failed';
       case 'operation-not-allowed':
-        return 'The email address is already registered. Please use a different email address';
+        return 'operation-not-allowed';
       case 'invalid-verification-code':
-        return 'The email address is already registered. Please use a different email address';
+        return 'invalid-verification-code';
       case 'invalid-credential':
-        return 'The email address is already registered. Please use a different email address';
+        return 'invalid-credential';
       case 'invalid-verification-id':
-        return 'The email address is already registered. Please use a different email address';
+        return 'invalid-verification-id';
       case 'captcha-check-failed':
-        return 'The email address is already registered. Please use a different email address';
+        return 'captcha-check-failed';
       case 'app-not-authorized':
-        return 'The email address is already registered. Please use a different email address';
+        return 'app-not-authorized';
       case 'keychain-error':
-        return 'The email address is already registered. Please use a different email address';
+        return 'keychain-error';
       case 'internal-error':
-        return 'The email address is already registered. Please use a different email address';
+        return 'internal-error';
       case 'invalid-app-credential':
-        return 'The email address is already registered. Please use a different email address';
+        return 'invalid-app-credential';
 
       default:
         return code;

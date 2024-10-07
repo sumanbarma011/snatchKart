@@ -8,43 +8,43 @@ class TFirebaseException implements Exception {
   String get message {
     switch (code) {
       case 'unknown':
-        return 'The email address is already registered. Please use a different email address';
+        return 'unknown';
       case 'invalid-custom-token':
-        return 'The email address is already registered. Please use a different email address';
+        return 'invalid-custom-token';
       case 'custom-token-mismatch':
-        return 'The email address is already registered. Please use a different email address';
+        return 'custom-token-mismatch';
       case 'user-disabled':
-        return 'The email address is already registered. Please use a different email address';
+        return 'user-disabled';
       case 'user-not-found':
-        return 'The email address is already registered. Please use a different email address';
+        return 'user-not-found';
       case 'invalid-email':
-        return 'The email address is already registered. Please use a different email address';
+        return 'invalid-email';
       case 'email-already-in-use':
-        return 'The email address is already registered. Please use a different email address';
+        return 'email-already-in-use';
       case 'wrong-password':
-        return 'The email address is already registered. Please use a different email address';
+        return 'wrong-password';
       case 'weak-password':
-        return 'The email address is already registered. Please use a different email address';
+        return 'weak-password';
       case 'provider-already-linked':
-        return 'The email address is already registered. Please use a different email address';
+        return 'provider-already-linkeds';
       case 'operation-not-allowed':
-        return 'The email address is already registered. Please use a different email address';
+        return 'operation-not-allowed';
       case 'invalid-verification-code':
-        return 'The email address is already registered. Please use a different email address';
+        return 'invalid-verification-code';
       case 'invalid-credential':
-        return 'The email address is already registered. Please use a different email address';
+        return 'invalid-credential';
       case 'invalid-verification-id':
-        return 'The email address is already registered. Please use a different email address';
+        return 'invalid-verification-id';
       case 'captcha-check-failed':
-        return 'The email address is already registered. Please use a different email address';
+        return 'captcha-check-failed';
       case 'app-not-authorized':
-        return 'The email address is already registered. Please use a different email address';
+        return 'app-not-authorized';
       case 'keychain-error':
-        return 'The email address is already registered. Please use a different email address';
+        return 'keychain-error';
       case 'internal-error':
-        return 'The email address is already registered. Please use a different email address';
+        return 'internal-error';
       case 'invalid-app-credential':
-        return 'The email address is already registered. Please use a different email address';
+        return 'invalid-app-credential';
 
       default:
         return code;

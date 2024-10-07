@@ -11,6 +11,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthenticationRepositiries extends GetxController {
   // Singleton pattern using GetX
@@ -20,6 +21,8 @@ class AuthenticationRepositiries extends GetxController {
   //variables
   final deviceStorage = GetStorage();
   final _auth = FirebaseAuth.instance;
+
+  User? get authUser => _auth.currentUser;
 
   //called from main.dart for app launch
   @override
@@ -107,11 +110,58 @@ class AuthenticationRepositiries extends GetxController {
     }
   }
 
+// FORGET PASSWORD
+  Future<void> sendPasswordResetEmail(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+    } on TFirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on TFirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on TFormatException catch (_) {
+      throw const TFormatException();
+    } on TPlatformException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again later. ';
+    }
+  }
+
+//  Identity and social sign in
+
+// [ Google Authentication ] - GOOGLE
+
+  Future<UserCredential?> signInwithGmail() async {
+    try {
+      // trigger the authentication flow
+      final GoogleSignInAccount? useraccount = await GoogleSignIn().signIn();
+
+      //obtain the auth detils from the request
+      final GoogleSignInAuthentication? googleAuth =
+          await useraccount?.authentication;
+// create a new credential
+      final credentials = GoogleAuthProvider.credential(
+          idToken: googleAuth?.idToken, accessToken: googleAuth?.accessToken);
+      return await _auth.signInWithCredential(credentials);
+    } on TFirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on TFirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on TFormatException catch (_) {
+      throw const TFormatException();
+    } on TPlatformException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } catch (e) {
+      print('Something went wrong. Please try again later. error is $e');
+      return null;
+    }
+  }
   // [Logout User]- valid for any authentication
 
   Future<void> logOut() async {
     try {
       await _auth.signOut();
+
       Get.offAll(() => const LogInScreen());
     } on TFirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;

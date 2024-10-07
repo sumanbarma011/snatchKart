@@ -20,7 +20,7 @@ class EmailVerificationController extends GetxController {
 
   sendEmailVerification() async {
     try {
-      print("send emaik");
+      print("send email");
       await AuthenticationRepositiries.instance.sendEmailVerification();
       TLoaders.successSnackBar(
           title: 'Email sent',

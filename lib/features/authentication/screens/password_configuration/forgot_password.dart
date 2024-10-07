@@ -1,4 +1,6 @@
 // import 'package:flutter/cupertino.dart';
+import 'package:esnatch/core/utils/validators/validation.dart';
+import 'package:esnatch/features/authentication/controller/forgetPassword/forget_password_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -12,6 +14,7 @@ class ForgetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ForgetPasswordController());
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -34,10 +37,15 @@ class ForgetPassword extends StatelessWidget {
               const SizedBox(
                 height: TSizes.spaceBtwSections,
               ),
-              TextFormField(
-                decoration: const InputDecoration(
-                  label: Text(TTexts.email),
-                  prefixIcon: Icon(Iconsax.direct_right),
+              Form(
+                key: controller.forgetEmailKey,
+                child: TextFormField(
+                  controller: controller.email,
+                  validator: TValidator.validateEmail,
+                  decoration: const InputDecoration(
+                    label: Text(TTexts.email),
+                    prefixIcon: Icon(Iconsax.direct_right),
+                  ),
                 ),
               ),
               const SizedBox(
@@ -46,9 +54,7 @@ class ForgetPassword extends StatelessWidget {
               SizedBox(
                 width: THelperFunctions.screenWidth(),
                 child: ElevatedButton(
-                  onPressed: () {
-                    Get.off(() => const ResetPassword());
-                  },
+                  onPressed: () => controller.sendPasswordResetEmail(),
                   child: const Text(TTexts.submit),
                 ),
               ),

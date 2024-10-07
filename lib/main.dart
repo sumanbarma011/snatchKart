@@ -29,6 +29,7 @@ Future<void> main() async {
   );
 
   // load all the material design/ theme/ bindings
+
   runApp(
     const MyApp(),
   );

@@ -8,35 +8,35 @@ class TFirebaseAuthException implements Exception {
   String get message {
     switch (code) {
       case 'email-already-in-use':
-        return 'The email address is already registered. Please use a different email address';
+        return 'email-already-in-use';
       case 'invalid-email':
-        return 'The email address is already registered. Please use a different email address';
+        return 'invalid-email';
       case 'weak-password':
-        return 'The email address is already registered. Please use a different email address';
+        return 'weak-password';
       case 'user-disabled':
-        return 'The email address is already registered. Please use a different email address';
+        return 'user-disabled';
       case 'user-not-found':
-        return 'The email address is already registered. Please use a different email address';
+        return 'user-not-found';
       case 'wrong-password':
-        return 'The email address is already registered. Please use a different email address';
+        return 'wrong-password';
       case 'invalid-verification-code':
-        return 'The email address is already registered. Please use a different email address';
+        return 'invalid-verification-code';
       case 'invalid-verification-id':
-        return 'The email address is already registered. Please use a different email address';
+        return 'invalid-verification-id';
       case 'quota-exceeded':
-        return 'The email address is already registered. Please use a different email address';
+        return 'quota-exceeded';
       case 'email-already-exits':
-        return 'The email address is already registered. Please use a different email address';
+        return 'email-already-exits';
       case 'provider-already-linked':
-        return 'The email address is already registered. Please use a different email address';
+        return 'provider-already-linked';
       case 'requires-recent-login':
-        return 'The email address is already registered. Please use a different email address';
+        return 'requires-recent-login';
       case 'credential-already-in-use':
-        return 'The email address is already registered. Please use a different email address';
+        return 'credential-already-in-use';
       case 'user-mismatch':
-        return 'The email address is already registered. Please use a different email address';
+        return 'user-mismatch';
       case 'too-many-requests':
-        return 'The email address is already registered. Please use a different email address';
+        return 'too-many-requests';
 
       default:
         return code;

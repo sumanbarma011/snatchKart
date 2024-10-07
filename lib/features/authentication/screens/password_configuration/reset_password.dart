@@ -1,3 +1,5 @@
+import 'package:esnatch/features/authentication/controller/forgetPassword/forget_password_controller.dart';
+import 'package:esnatch/features/authentication/screens/logIn/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -5,10 +7,10 @@ import 'package:esnatch/core/utils/constants/image_strings.dart';
 import 'package:esnatch/core/utils/constants/sizes.dart';
 import 'package:esnatch/core/utils/constants/text_strings.dart';
 import 'package:esnatch/core/utils/helpers/helper_functions.dart';
-import 'package:esnatch/features/authentication/screens/password_configuration/forgot_password.dart';
 
 class ResetPassword extends StatelessWidget {
-  const ResetPassword({super.key});
+  const ResetPassword({super.key, required this.email});
+  final String email;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +58,9 @@ class ResetPassword extends StatelessWidget {
                 width: THelperFunctions.screenWidth(),
                 child: ElevatedButton(
                   child: const Text(TTexts.done),
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.offAll(() => const LogInScreen());
+                  },
                 ),
               ),
               const SizedBox(
@@ -65,9 +69,8 @@ class ResetPassword extends StatelessWidget {
               SizedBox(
                 width: THelperFunctions.screenWidth(),
                 child: TextButton(
-                  onPressed: () {
-                    Get.to(() => const ForgetPassword());
-                  },
+                  onPressed: () => ForgetPasswordController.instance
+                      .resendPasswordResetEmail(email),
                   child: const Text(TTexts.resendEmail),
                 ),
               ),

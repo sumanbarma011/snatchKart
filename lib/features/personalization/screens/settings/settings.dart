@@ -1,3 +1,4 @@
+import 'package:esnatch/core/data/repositories/repositories.authentication/authentication_repositiries.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -125,7 +126,7 @@ class SettingsScreen extends StatelessWidget {
               child: SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () => AuthenticationRepositiries.instance.logOut(),
                   child: const Text('LogOut'),
                 ),
               ),

@@ -2,7 +2,6 @@ import 'package:esnatch/core/utils/validators/validation.dart';
 import 'package:esnatch/features/authentication/controller/login/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:esnatch/core/utils/constants/sizes.dart';
 import 'package:esnatch/core/utils/constants/text_strings.dart';
@@ -98,7 +97,7 @@ class _TLoginFormState extends State<TLoginForm> {
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
-                controller.signIn();
+                controller.emailAndPasswordSignIn();
               },
               child: const Text(
                 TTexts.signIn,

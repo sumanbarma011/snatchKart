@@ -1,4 +1,6 @@
+import 'package:esnatch/features/personalization/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:esnatch/core/utils/constants/colors.dart';
 import 'package:esnatch/core/utils/constants/image_strings.dart';
@@ -25,7 +27,9 @@ class TUserProfileTile extends StatelessWidget {
       ),
       tileColor: Colors.red,
       trailing: IconButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.to(() => const ProfileScreen());
+        },
         icon: const Icon(
           Iconsax.edit,
           color: TColors.white,
